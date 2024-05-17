@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Email</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 50px;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #emailForm {
+            margin-bottom: 20px;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <form id="emailForm">
+        <input type="email" id="email" class="form-control" placeholder="example@gmail.com" required>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="subscribeCheckbox">
+            <label class="form-check-label" for="subscribeCheckbox">Confirmar envío de email</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar email para informacion de pago</button>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const isSubscribed = document.getElementById('subscribeCheckbox').checked;
+
+        if (isSubscribed) {
+            const settings = {
+                async: true,
+                crossDomain: true,
+                url: 'https://mail-sender-api1.p.rapidapi.com/',
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                    'X-RapidAPI-Key': '1747fdda5emsh3d507bc5d76996bp17b475jsn30d027573824',
+                    'X-RapidAPI-Host': 'mail-sender-api1.p.rapidapi.com'
+                },
+                processData: false,
+                data: JSON.stringify({
+                    sendto: email,
+                    name: "Equipo Elism",
+                    replyTo: "Tu dirección de email donde los usuarios pueden enviar sus respuestas",
+                    ishtml: "false",
+                    title: "Compra de productos",
+                    body: `
+                        Gracias por comunicarte con nosotros. A continuación, verás las formas de pago
+                        
+                             https://www.paypal.com
+                             https://www.tarjetas.com/pago
+                           
+                    `
+                })
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+        } else {
+            alert("Por favor, marca la casilla para suscribirte.");
+        }
+    });
+</script>
+ <script></script>
+</body>
+</html>

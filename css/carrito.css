@@ -1,0 +1,16 @@
+.container {
+    max-width: 600px;
+    margin: 30px auto; /* Centrar y añadir margen superior e inferior */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+  .form-label {
+    font-weight: bold;
+  }
+
+  .cuerpo {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de compras</title>
+    <link rel="stylesheet" href="css/carrito.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body class="cuerpo">
+    
+    <!-- navegacion-->
+    <nav class="navbar navbar-expand-lg p-3">
+      <div class="container-fluid">
+        <a href="index.html"><img style="width: 200px;" src="img/logo.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto ">
+            <li class="nav-item">
+              <a class="nav-link mx-2" aria-current="page" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="hombre.html">Hombre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="mujer.html">Mujer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="accesorios.html">Accesorios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="nosotros.html">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx- active" href="carrito.html"><i class="bi bi-bag"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+
+    <style>
+      .container {
+        max-width: 600px;
+        margin: 30px auto; /* Centrar y añadir margen superior e inferior */
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+      }
+      .form-label {
+        font-weight: bold;
+      }
+    </style>
+  
+    <!-- DIRECCION COMPRADOR -->
+
+    <div class="container">
+      <h5 class="text-center fw-bold">Dirección</h5>
+      <div class="mb-3">
+        <label for="email" class="form-label fw-bold">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+      </div>
+      <div class="mb-3">
+        <label for="nombre" class="form-label fw-bold">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+      </div>
+      <div class="mb-3">
+        <label for="apellido" class="form-label fw-bold">Apellido</label>
+        <input type="text" class="form-control" id="apellido" placeholder="Apellido">
+      </div>
+      <div class="mb-3">
+        <label for="direccion" class="form-label fw-bold">Dirección</label>
+        <input type="text" class="form-control" id="direccion" placeholder="Dirección">
+      </div>
+      <div class="mb-3">
+        <label for="comuna" class="form-label fw-bold">Comuna</label>
+        <input type="text" class="form-control" id="comuna" placeholder="Comuna">
+      </div>
+      <div class="mb-3 text-center">
+        <button type="submit" class="btn btn-success">Guardar</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2 class="my-4">Carrito de Compras</h2>
+
+      <!-- Lista de productos en el carrito -->
+      <div id="cart-items" class="row"></div>
+      
+      <!-- Botón para realizar el pago -->
+      <button type="button" class="btn btn-success"><a href="pago.html" style="color: white; text-decoration: none;">Realizar pago</a></button>
+      <!-- Botón para vaciar el carrito -->
+      <button onclick="clearCart()" class="btn btn-danger">Vaciar Carrito</button>
+  </div>
+
+ 
+
+    
+<!-- footer -->
+<footer class="footer mt-auto py-3">
+  <div class="container">
+    <span class="text-muted">© E l i s m  2 0 2 4.</span>
+  </div>
+</footer>
+
+<!-- VALIDACION DE DIRECCIONES CON JQUERY -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<!-- SCRIPT DE VALIDACION CON JQERY DIRECCION-->
+<script src="js/direccion.js"></script>
+
+<!-- SCRIPT DE CARRITO DE COMPRAS-->
+<script src="js/carrito.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</head>
+</html>
